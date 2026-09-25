@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="A responsive temple picture album featuring temples from around the world.">
+    <meta name="author" content="Juan Jaron de Oliveira Moreira">
+
+    <title>Temple Album</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="estilos/templos.css">
+    <link rel="stylesheet" href="estilos/templos-grandes.css">
+
+    <script src="scripts/templos.js" defer></script>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-container">
+
+            <div class="header-title">
+                <span>Temple Album</span>
+            </div>
+
+            <button id="menu-button" aria-label="Open navigation menu">
+                ☰
+            </button>
+
+            <nav id="navigation">
+                <a href="index.html">Home</a>
+                <a href="#">Old</a>
+                <a href="#">New</a>
+                <a href="#">Large</a>
+                <a href="#">Small</a>
+            </nav>
+
+        </div>
+    </header>
+
+    <main>
+
+        <h1>Temple Album</h1>
+
+        <div class="temple-grid">
+
+            <figure>
+                <img src="imagens/templo1.png"
+                     alt="Salt Lake Temple"
+                     loading="lazy">
+                <figcaption>Salt Lake Temple</figcaption>
+            </figure>
+
+            <figure>
+                <img src="imagens/templo2.png"
+                     alt="São Paulo Brazil Temple"
+                     loading="lazy">
+                <figcaption>São Paulo Brazil Temple</figcaption>
+            </figure>
+
+            <figure>
+                <img src="imagens/templo3.png"
+                     alt="Curitiba Brazil Temple"
+                     loading="lazy">
+                <figcaption>Curitiba Brazil Temple</figcaption>
+            </figure>
+
+            <figure>
+                <img src="imagens/templo4.png"
+                     alt="Rome Italy Temple"
+                     loading="lazy">
+                <figcaption>Rome Italy Temple</figcaption>
+            </figure>
+
+            <figure>
+                <img src="imagens/templo5.png"
+                     alt="Paris France Temple"
+                     loading="lazy">
+                <figcaption>Paris France Temple</figcaption>
+            </figure>
+
+            <figure>
+                <img src="imagens/templo6.png"
+                     alt="London England Temple"
+                     loading="lazy">
+                <figcaption>London England Temple</figcaption>
+            </figure>
+
+            <figure>
+                <img src="imagens/templo7.png"
+                     alt="Provo Utah Temple"
+                     loading="lazy">
+                <figcaption>Provo Utah Temple</figcaption>
+            </figure>
+
+            <figure>
+                <img src="imagens/templo8.png"
+                     alt="Rexburg Idaho Temple"
+                     loading="lazy">
+                <figcaption>Rexburg Idaho Temple</figcaption>
+            </figure>
+
+            <figure>
+                <img src="imagens/templo9.png"
+                     alt="Brasília Brazil Temple"
+                     loading="lazy">
+                <figcaption>Brasília Brazil Temple</figcaption>
+            </figure>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <p>
+            &copy; <span id="currentyear"></span>
+            Juan Jaron de Oliveira Moreira | Brazil
+        </p>
+
+        <p id="lastModified"></p>
+    </footer>
+
+</body>
+</html>
