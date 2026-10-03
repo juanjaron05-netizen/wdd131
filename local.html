@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Informações sobre o Brasil, incluindo dados gerais e clima.">
+    <meta name="author" content="Juan Jaron de Oliveira Moreira">
+
+    <title>Brasil | Juan Jaron de Oliveira Moreira</title>
+
+    <link rel="stylesheet" href="estilos/local.css">
+    <script src="scripts/local.js" defer></script>
+</head>
+
+<body>
+
+    <header>
+        <h1>Brasil</h1>
+    </header>
+
+    <main>
+
+        <div class="hero">
+            <picture>
+                <source
+                    srcset="imagens/brasil-grande.png"
+                    media="(min-width: 700px)"
+                >
+                <img
+                    src="imagens/brasil-pequeno.png"
+                    alt="Paisagem brasileira"
+                    width="600"
+                    height="400"
+                >
+            </picture>
+
+            <section class="dados">
+                <h2>Dados</h2>
+
+                <div class="info">
+                    <p><strong>Área:</strong> 8.515.767 km²</p>
+                    <p><strong>População:</strong> 203 milhões</p>
+                    <p><strong>Capital:</strong> Brasília</p>
+                    <p><strong>Idioma:</strong> Português</p>
+                    <p><strong>Moeda:</strong> Real (BRL)</p>
+                    <p><strong>Fuso horário:</strong> UTC−3</p>
+                    <p><strong>Código:</strong> +55</p>
+                    <p><strong>Domínio:</strong> .br</p>
+                </div>
+            </section>
+
+            <section class="clima">
+                <h2>Clima</h2>
+
+                <img
+                    class="icone-clima"
+                    src="imagens/clima-parcialmente-nublado.png"
+                    alt="Ícone de clima parcialmente nublado"
+                    width="80"
+                    height="80"
+                >
+
+                <div class="info">
+                    <p>
+                        <strong>Temperatura:</strong>
+                        <span id="temperatura">8</span> °C
+                    </p>
+
+                    <p>
+                        <strong>Condições:</strong>
+                        Parcialmente nublado
+                    </p>
+
+                    <p>
+                        <strong>Vento:</strong>
+                        <span id="vento">12</span> km/h
+                    </p>
+
+                    <p>
+                        <strong>Sensação térmica:</strong>
+                        <span id="sensacao"></span>
+                    </p>
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>
+            &copy; <span id="anoAtual"></span>
+            | Juan Jaron de Oliveira Moreira
+            | Brasil
+        </p>
+
+        <p id="ultimaModificacao"></p>
+    </footer>
+
+</body>
+</html>
