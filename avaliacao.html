@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Confirmação do envio da avaliação">
+    <title>Avaliação Enviada</title>
+    <link rel="stylesheet" href="estilos/formulario.css">
+    <script src="scripts/avaliacao.js" defer></script>
+</head>
+
+<body>
+    <header class="page-header">
+        <h1>Avaliação Enviada!</h1>
+    </header>
+
+    <main class="confirmation">
+        <section class="confirmation-card"
+            aria-labelledby="confirmation-title">
+
+            <h2 id="confirmation-title">
+                Obrigado pela sua avaliação!
+            </h2>
+
+            <p>Sua avaliação foi enviada com sucesso.</p>
+
+            <p class="counter-text">
+                Total de avaliações concluídas neste navegador:
+            </p>
+
+            <p class="counter" id="review-count" aria-live="polite">
+                0
+            </p>
+
+            <a class="back-link" href="formulario.html">
+                Enviar outra avaliação
+            </a>
+
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>©2026 ⭐ Juan Jaron de Oliveira Moreira ⭐</p>
+        <p>Obrigado por compartilhar sua opinião!</p>
+        <p>Última Modificação: <span id="last-modified"></span></p>
+    </footer>
+</body>
+</html>

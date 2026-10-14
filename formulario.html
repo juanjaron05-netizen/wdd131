@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Formulário de avaliação de produto">
+    <title>Avaliação do Produto</title>
+    <link rel="stylesheet" href="estilos/formulario.css">
+    <script src="scripts/formulario.js" defer></script>
+</head>
+
+<body>
+    <header class="page-header">
+        <h1>Avaliação do Produto</h1>
+    </header>
+
+    <main>
+        <form action="avaliacao.html" method="get" class="review-form">
+
+            <div class="form-field">
+                <label for="produto">Nome do Produto</label>
+                <select id="produto" name="produto" required>
+                    <option value="" disabled selected>
+                        Selecione um Produto...
+                    </option>
+                </select>
+            </div>
+
+            <fieldset class="form-field rating-field">
+                <legend>Classificação Geral</legend>
+
+                <div class="rating-options">
+                    <div class="rating-option">
+                        <input type="radio" id="classificacao-1"
+                            name="classificacao" value="1" required>
+                        <label for="classificacao-1">☆</label>
+                    </div>
+
+                    <div class="rating-option">
+                        <input type="radio" id="classificacao-2"
+                            name="classificacao" value="2" required>
+                        <label for="classificacao-2">☆☆</label>
+                    </div>
+
+                    <div class="rating-option">
+                        <input type="radio" id="classificacao-3"
+                            name="classificacao" value="3" required>
+                        <label for="classificacao-3">☆☆☆</label>
+                    </div>
+
+                    <div class="rating-option">
+                        <input type="radio" id="classificacao-4"
+                            name="classificacao" value="4" required>
+                        <label for="classificacao-4">☆☆☆☆</label>
+                    </div>
+
+                    <div class="rating-option">
+                        <input type="radio" id="classificacao-5"
+                            name="classificacao" value="5" required>
+                        <label for="classificacao-5">☆☆☆☆☆</label>
+                    </div>
+                </div>
+            </fieldset>
+
+            <div class="form-field">
+                <label for="data-instalacao">Data de Instalação</label>
+                <input type="date" id="data-instalacao"
+                    name="data-instalacao" required>
+            </div>
+
+            <fieldset class="form-field features-field">
+                <legend>
+                    Quais recursos você achou úteis no produto?
+                </legend>
+
+                <p class="hint">
+                    <em>(Marque todos que se aplicam)</em>
+                </p>
+
+                <div class="checkbox-option">
+                    <input type="checkbox" id="durabilidade"
+                        name="recursos" value="Durabilidade">
+                    <label for="durabilidade">Durabilidade</label>
+                </div>
+
+                <div class="checkbox-option">
+                    <input type="checkbox" id="facilidade"
+                        name="recursos" value="Facilidade de Uso">
+                    <label for="facilidade">Facilidade de Uso</label>
+                </div>
+
+                <div class="checkbox-option">
+                    <input type="checkbox" id="desempenho"
+                        name="recursos" value="Desempenho">
+                    <label for="desempenho">Desempenho</label>
+                </div>
+
+                <div class="checkbox-option">
+                    <input type="checkbox" id="design"
+                        name="recursos" value="Design">
+                    <label for="design">Design</label>
+                </div>
+            </fieldset>
+
+            <div class="form-field">
+                <label for="avaliacao-escrita">
+                    Avaliação Escrita
+                    <span class="optional">(Opcional)</span>
+                </label>
+
+                <textarea id="avaliacao-escrita"
+                    name="avaliacao-escrita" rows="5"></textarea>
+            </div>
+
+            <div class="form-field">
+                <label for="nome-usuario">
+                    Seu Nome
+                    <span class="optional">(Opcional)</span>
+                </label>
+
+                <input type="text" id="nome-usuario"
+                    name="nome-usuario" autocomplete="name">
+            </div>
+
+            <input class="submit-button" type="submit"
+                value="Publicar Avaliação">
+
+        </form>
+    </main>
+
+    <footer class="site-footer">
+        <p>©2026 ⭐ Juan Jaron de Oliveira Moreira ⭐</p>
+        <p>Obrigado por compartilhar sua opinião!</p>
+        <p>Última Modificação: <span id="last-modified"></span></p>
+    </footer>
+</body>
+</html>

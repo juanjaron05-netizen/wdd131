@@ -1,0 +1,240 @@
+
+:root {
+    --plum: #310a2e;
+    --plum-dark: #250622;
+    --panel: #e4dfe5;
+    --page: #f3f7f2;
+    --text: #211d22;
+    --accent: #4d2874;
+    --border: #c8c1cc;
+    --white: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0 auto;
+    padding: 1rem;
+    max-width: 760px;
+    color: var(--text);
+    background: var(--page);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.45;
+}
+
+.page-header {
+    margin-bottom: 1rem;
+    padding: 0.8rem 1rem;
+    color: var(--white);
+    background: var(--plum);
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+    font-size: clamp(1.35rem, 4vw, 1.8rem);
+}
+
+.review-form,
+.confirmation-card {
+    padding: 1rem;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+}
+
+.form-field {
+    min-width: 0;
+    margin: 0 0 1.1rem;
+    padding: 0;
+    border: 0;
+}
+
+.form-field > label,
+.form-field legend {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+select,
+input[type="date"],
+input[type="text"],
+textarea {
+    display: block;
+    width: 100%;
+    min-height: 2.6rem;
+    padding: 0.55rem;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    background: var(--white);
+    color: var(--text);
+    font: inherit;
+}
+
+textarea {
+    min-height: 7rem;
+    resize: vertical;
+}
+
+.rating-options {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.3rem;
+    padding: 0.2rem 0;
+}
+
+.rating-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    gap: 0.3rem;
+}
+
+.rating-option input {
+    order: 2;
+    width: 1.35rem;
+    height: 1.35rem;
+    margin: 0;
+    accent-color: var(--accent);
+    cursor: pointer;
+}
+
+.rating-option label {
+    order: 1;
+    min-height: 1.2rem;
+    color: var(--plum);
+    font-size: clamp(0.75rem, 2.4vw, 1rem);
+    letter-spacing: -0.08em;
+    cursor: pointer;
+}
+
+.rating-option input:focus-visible,
+.checkbox-option input:focus-visible,
+select:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+a:focus-visible,
+.submit-button:focus-visible {
+    outline: 3px solid #7653a6;
+    outline-offset: 2px;
+}
+
+.features-field legend {
+    margin-bottom: 0;
+}
+
+.hint {
+    margin: 0 0 0.35rem;
+    font-size: 0.9rem;
+}
+
+.checkbox-option {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    margin: 0.45rem 0;
+}
+
+.checkbox-option input {
+    width: 1.25rem;
+    height: 1.25rem;
+    margin: 0;
+    accent-color: var(--accent);
+}
+
+.checkbox-option label {
+    cursor: pointer;
+}
+
+.optional {
+    color: var(--accent);
+    font-size: 0.85em;
+}
+
+.submit-button {
+    display: block;
+    width: 100%;
+    min-height: 3rem;
+    padding: 0.65rem 1rem;
+    border: 1px solid #b9b3bf;
+    border-radius: 5px;
+    background: #f6f4f7;
+    color: #111;
+    font: inherit;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background: var(--white);
+    border-color: var(--accent);
+}
+
+.site-footer {
+    margin-top: 1rem;
+    padding: 0.9rem 0.75rem;
+    background: var(--plum);
+    color: var(--white);
+    text-align: center;
+    overflow-wrap: anywhere;
+}
+
+.site-footer p {
+    margin: 0.25rem 0;
+}
+
+.confirmation {
+    min-height: 40vh;
+}
+
+.confirmation-card {
+    padding: 1.5rem 1rem;
+    text-align: center;
+}
+
+.confirmation-card h2 {
+    margin-top: 0;
+    color: var(--plum);
+}
+
+.counter-text {
+    margin-bottom: 0.25rem;
+}
+
+.counter {
+    margin: 0.25rem 0 1.2rem;
+    color: var(--plum);
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.back-link {
+    display: inline-block;
+    padding: 0.7rem 1rem;
+    border-radius: 4px;
+    background: var(--plum);
+    color: var(--white);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    background: var(--plum-dark);
+}
+
+@media (min-width: 600px) {
+    body {
+        padding: 2rem;
+    }
+
+    .review-form,
+    .confirmation-card {
+        padding: 1.5rem;
+    }
+}
