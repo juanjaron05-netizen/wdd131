@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Planeje sua próxima viagem pelo Brasil com dicas de destinos, orçamento, duração e atividades turísticas.">
+  <meta name="author" content="Juan Jaron de Oliveira Moreira">
+  <title>Planeje sua viagem | Descubra Brasil</title>
+  <link rel="stylesheet" href="index.css">
+  <script src="planeje.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="index.html">DESCUBRA BRASIL</a>
+
+    <nav aria-label="Navegação principal">
+      <a href="index.html">Início</a>
+      <a href="destinos.html">Destinos</a>
+      <a href="planeje.html" aria-current="page">Planeje sua viagem</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <p class="eyebrow">SUA PRÓXIMA AVENTURA</p>
+        <h1>Planeje sua viagem pelo Brasil</h1>
+        <p>Organize suas ideias e descubra uma maneira melhor de aproveitar cada destino.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Antes de viajar</h2>
+      <div class="destination-grid">
+        <article class="destination-card">
+          <div class="destination-card-content">
+            <h3>Escolha o destino</h3>
+            <p>Considere o clima, as atrações e o tipo de experiência que deseja viver.</p>
+          </div>
+        </article>
+
+        <article class="destination-card">
+          <div class="destination-card-content">
+            <h3>Organize o orçamento</h3>
+            <p>Separe dinheiro para transporte, hospedagem, alimentação e passeios.</p>
+          </div>
+        </article>
+
+        <article class="destination-card">
+          <div class="destination-card-content">
+            <h3>Prepare o roteiro</h3>
+            <p>Defina a duração da viagem e escolha as atividades que deseja realizar.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Monte seu plano de viagem</h2>
+      <p>Preencha os campos para receber um resumo personalizado.</p>
+
+      <form id="travel-form">
+        <label for="traveler-name">Seu nome</label>
+        <input type="text" id="traveler-name" name="name" required>
+
+        <label for="destination">Destino desejado</label>
+        <select id="destination" name="destination" required>
+          <option value="">Selecione um destino</option>
+          <option value="Foz do Iguaçu">Foz do Iguaçu</option>
+          <option value="Rio de Janeiro">Rio de Janeiro</option>
+          <option value="Ouro Preto">Ouro Preto</option>
+          <option value="Outro destino brasileiro">Outro destino brasileiro</option>
+        </select>
+
+        <label for="days">Quantos dias?</label>
+        <input type="number" id="days" name="days" min="1" max="60" required>
+
+        <label for="budget">Orçamento aproximado (R$)</label>
+        <input type="number" id="budget" name="budget" min="0" step="0.01" required>
+
+        <label for="travel-style">Tipo de viagem</label>
+        <select id="travel-style" name="style" required>
+          <option value="">Selecione uma opção</option>
+          <option value="Natureza e aventura">Natureza e aventura</option>
+          <option value="Praias e descanso">Praias e descanso</option>
+          <option value="História e cultura">História e cultura</option>
+          <option value="Um pouco de tudo">Um pouco de tudo</option>
+        </select>
+
+        <button type="submit">Criar meu plano</button>
+      </form>
+
+      <div id="travel-result" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Descubra Brasil | Explore as belezas do nosso país.</p>
+    <a href="referencias.html">Referências</a>
+  </footer>
+</body>
+</html>

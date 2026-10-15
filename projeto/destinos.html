@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="Explore destinos turísticos do Brasil, conheça praias, cachoeiras e cidades históricas e descubra atividades para sua próxima viagem.">
+  <meta name="author" content="Juan Jaron de Oliveira Moreira">
+
+  <title>Destinos | Descubra Brasil</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="index.css">
+  <script src="destinos.js" defer></script>
+</head>
+
+<body>
+  <header class="site-header">
+    <a class="logo" href="index.html">Descubra Brasil</a>
+
+    <nav aria-label="Navegação principal">
+      <a href="index.html">Início</a>
+      <a href="destinos.html" aria-current="page">Destinos</a>
+      <a href="planeje.html">Planeje sua viagem</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <p class="eyebrow">DESCUBRA NOVOS LUGARES</p>
+        <h1>Seu próximo destino é no Brasil</h1>
+        <p>
+          De praias tropicais a cidades históricas, encontre inspiração
+          para explorar diferentes paisagens e culturas brasileiras.
+        </p>
+        <a class="button" href="#explorar">Conhecer destinos</a>
+      </div>
+    </section>
+
+    <section class="section" id="explorar">
+      <div class="section-heading">
+        <p class="eyebrow">ENCONTRE SUA PRÓXIMA AVENTURA</p>
+        <h2>Explore por interesse</h2>
+        <p>Selecione uma categoria para encontrar lugares que combinam com sua viagem.</p>
+      </div>
+
+      <div class="filters" aria-label="Filtrar destinos">
+        <button class="filter-button active" type="button" data-category="todos" aria-pressed="true">Todos</button>
+        <button class="filter-button" type="button" data-category="natureza" aria-pressed="false">Natureza</button>
+        <button class="filter-button" type="button" data-category="praia" aria-pressed="false">Praias</button>
+        <button class="filter-button" type="button" data-category="historia" aria-pressed="false">História</button>
+      </div>
+
+      <p id="results-message" aria-live="polite">Carregando destinos...</p>
+
+      <div id="destination-list" class="destination-grid">
+        <p>Os destinos serão exibidos aqui.</p>
+      </div>
+    </section>
+
+    <section class="planning-callout">
+      <div>
+        <p class="eyebrow">SUA VIAGEM COMEÇA COM UM PLANO</p>
+        <h2>Já sabe o que gostaria de conhecer?</h2>
+        <p>Registre suas preferências e organize suas ideias para viajar.</p>
+      </div>
+      <a class="button button-light" href="planeje.html">Planejar viagem</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Descubra Brasil — Explore, conheça e viva novas experiências.</p>
+    <a href="referencias.html">Referências e créditos</a>
+    <p class="copyright">Projeto acadêmico — WDD 131</p>
+  </footer>
+</body>
+</html>
