@@ -4,139 +4,137 @@ const destinations = [
     id: "foz",
     name: "Foz do Iguaçu",
     region: "Paraná",
-    description: "Conheça as Cataratas do Iguaçu e contemple uma das paisagens naturais mais impressionantes do Brasil.",
-    activity: "Visitar as cataratas",
-    image: "https://images.unsplash.com/photo-1580193769210-b8d1c049a7d9?auto=format&fit=crop&w=900&q=75",
-    alt: "Grande queda-d'água cercada por vegetação"
+    category: "natureza",
+    description:
+      "Conheça as Cataratas do Iguaçu, admire as quedas-d'água e explore as paisagens naturais da região.",
+    activity: "Visitar as Cataratas do Iguaçu",
+    image:
+      "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=900&q=80",
+    alt: "Paisagem natural com vegetação e água"
   },
   {
     id: "rio",
     name: "Rio de Janeiro",
     region: "Rio de Janeiro",
-    description: "Explore praias famosas, mirantes e paisagens que combinam montanhas, cidade e mar.",
-    activity: "Conhecer os mirantes e as praias",
-    image: "https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=900&q=75",
-    alt: "Paisagem do Rio de Janeiro com montanhas e litoral"
+    category: "praia",
+    description:
+      "Descubra praias famosas, montanhas e mirantes com vistas marcantes da cidade e do litoral.",
+    activity: "Conhecer as praias e os mirantes",
+    image:
+      "https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=900&q=80",
+    alt: "Vista panorâmica do Rio de Janeiro entre montanhas e mar"
   },
   {
     id: "ouro-preto",
     name: "Ouro Preto",
     region: "Minas Gerais",
-    description: "Caminhe por ruas históricas, admire a arquitetura colonial e conheça o patrimônio cultural da cidade.",
-    activity: "Explorar o centro histórico",
-    image: "https://images.unsplash.com/photo-1598689091637-c4a4a5f06a2e?auto=format&fit=crop&w=900&q=75",
-    alt: "Arquitetura histórica em uma cidade brasileira"
+    category: "historia",
+    description:
+      "Explore ruas de pedra, igrejas e construções coloniais que fazem parte do patrimônio histórico brasileiro.",
+    activity: "Passear pelo centro histórico",
+    image:
+      "https://images.unsplash.com/photo-1516307365426-bea591f05011?auto=format&fit=crop&w=900&q=80",
+    alt: "Arquitetura histórica e construções tradicionais"
   }
 ];
 
-const storageKey = `descubraBrasilFavoritos`;
-const destinationList = document.querySelector(`#destination-list`);
-const favoritesSummary = document.querySelector(`#favorites-summary`);
+const destinationList = document.querySelector("#destination-list");
+const resultsMessage = document.querySelector("#results-message");
+const filterButtons = document.querySelectorAll(".filter-button");
 
-function loadFavorites() {
-  try {
-    const savedFavorites = JSON.parse(
-      localStorage.getItem(storageKey) ?? `[]`
-    );
-
-    if (Array.isArray(savedFavorites)) {
-      return savedFavorites.filter((id) =>
-        destinations.some((destination) => destination.id === id)
-      );
-    }
-
-    return [];
-  } catch (error) {
-    return [];
-  }
-}
-
-let favoriteIds = loadFavorites();
-
-function saveFavorites() {
-  try {
-    localStorage.setItem(storageKey, JSON.stringify(favoriteIds));
-    return true;
-  } catch (error) {
-    return false;
-  }
-}
-
-function updateFavoritesSummary() {
-  const total = favoriteIds.length;
-
-  if (total === 0) {
-    favoritesSummary.textContent =
-      `Você ainda não salvou nenhum destino.`;
-  } else if (total === 1) {
-    favoritesSummary.textContent =
-      `Você salvou 1 destino como favorito.`;
-  } else {
-    favoritesSummary.textContent =
-      `Você salvou ${total} destinos como favoritos.`;
-  }
-}
-
-function renderDestinations() {
-  const destinationCards = destinations.map((destination) => {
-    const isFavorite = favoriteIds.includes(destination.id);
-
-    return `
-      <article class="destination-card">
-        <img
-          src="${destination.image}"
-          alt="${destination.alt}"
-          loading="lazy"
-          width="900"
-          height="600"
-        >
-
-        <div class="destination-card-content">
-          <p class="destination-region">${destination.region}</p>
-          <h3>${destination.name}</h3>
-          <p>${destination.description}</p>
-          <p><strong>Sugestão:</strong> ${destination.activity}</p>
-
-          <button
-            class="favorite-button"
-            type="button"
-            data-id="${destination.id}"
-            aria-pressed="${isFavorite}"
-          >
-            ${isFavorite ? `Remover dos favoritos` : `Salvar nos favoritos`}
-          </button>
-        </div>
-      </article>
-    `;
-  });
-
-  destinationList.innerHTML = destinationCards.join(``);
-  updateFavoritesSummary();
-}
-
-destinationList.addEventListener(`click`, (event) => {
-  const button = event.target.closest(`.favorite-button`);
-
-  if (!button) {
+function renderDestinations(category = "todos") {
+  // Verifica se os elementos necessários existem no HTML.
+  if (!destinationList) {
+    console.error('Elemento "#destination-list" não encontrado no HTML.');
     return;
   }
 
-  const destinationId = button.dataset.id;
+  const filteredDestinations = destinations.filter((destination) => {
+    if (category === "todos") {
+      return true;
+    }
 
-  if (favoriteIds.includes(destinationId)) {
-    favoriteIds = favoriteIds.filter((id) => id !== destinationId);
-  } else {
-    favoriteIds = [...favoriteIds, destinationId];
+    return destination.category === category;
+  });
+
+  if (filteredDestinations.length === 0) {
+    destinationList.innerHTML =
+      `<p>Nenhum destino encontrado nesta categoria.</p>`;
+
+    if (resultsMessage) {
+      resultsMessage.textContent = "Nenhum destino encontrado.";
+    }
+
+    return;
   }
 
-  const wasSaved = saveFavorites();
+  destinationList.innerHTML = filteredDestinations
+    .map(
+      (destination) => `
+        <article class="destination-card">
+          <img
+            src="${destination.image}"
+            alt="${destination.alt}"
+            loading="lazy"
+            width="900"
+            height="600"
+          >
 
-  renderDestinations();
+          <div class="destination-card-content">
+            <p class="destination-region">${destination.region}</p>
+            <h3>${destination.name}</h3>
+            <p>${destination.description}</p>
+            <p><strong>Sugestão:</strong> ${destination.activity}</p>
+          </div>
+        </article>
+      `
+    )
+    .join("");
 
-  if (!wasSaved) {
-    favoritesSummary.textContent =
-      `Seus favoritos foram atualizados nesta página, mas o navegador não permitiu salvá-los.`;
+  if (resultsMessage) {
+    resultsMessage.textContent =
+      `${filteredDestinations.length} destino(s) encontrado(s).`;
   }
+
+  addImageFallbacks();
+}
+
+function addImageFallbacks() {
+  if (!destinationList) {
+    return;
+  }
+
+  const images = destinationList.querySelectorAll("img");
+
+  images.forEach((image) => {
+    image.addEventListener("error", () => {
+      if (image.dataset.fallbackUsed === "true") {
+        return;
+      }
+
+      image.dataset.fallbackUsed = "true";
+
+      image.src =
+        "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80";
+
+      image.alt = "Paisagem natural brasileira";
+    }, { once: true });
+  });
+}
+
+filterButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const selectedCategory = button.dataset.category;
+
+    filterButtons.forEach((filterButton) => {
+      const isSelected = filterButton === button;
+
+      filterButton.classList.toggle("active", isSelected);
+      filterButton.setAttribute("aria-pressed", `${isSelected}`);
+    });
+
+    renderDestinations(selectedCategory);
+  });
 });
 
 renderDestinations();
